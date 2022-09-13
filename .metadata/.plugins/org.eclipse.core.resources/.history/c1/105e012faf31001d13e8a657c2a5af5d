@@ -1,0 +1,35 @@
+package queueCollection;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ReverseQueues {
+	public static void main(String[] args) {
+	  Queue<Integer> input=new LinkedList<>();
+	  int a[]= {1,2,3,4,5};
+	  for(int elem:a) {
+		  input.add(elem);
+	  }
+	  Solution.reverseQueue(input);
+	  
+	  while(!input.isEmpty()) {
+		  System.out.println(input.poll());
+	  }
+	}
+	
+	 
+
+}
+ class Solution {
+
+	public static void reverseQueue(Queue<Integer> input) {
+        if(input.size()<=1){
+            return;
+        }
+        int temp=input.poll();
+          reverseQueue(input);
+          input.add(temp);
+    
+	}
+
+}

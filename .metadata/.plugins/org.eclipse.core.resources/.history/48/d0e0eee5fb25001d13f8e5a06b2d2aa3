@@ -1,0 +1,41 @@
+package com.LinkedList;
+
+import java.util.Scanner;
+
+public class LinkedListUse {
+	public static LinkedListNode<Integer> takeInput(){
+		LinkedListNode<Integer> head1 = null;
+		Scanner sc=new Scanner(System.in);
+		int data=sc.nextInt();
+		
+		while(data!=-1) {
+		LinkedListNode<Integer> currentNode=new LinkedListNode<Integer>(data);
+		if(head1==null) {
+		head1=currentNode;}
+		else {
+			LinkedListNode<Integer> tail=head1;
+			while(tail.next!=null) {
+				tail=tail.next;
+			}
+			//tail refers to last node
+			//connect current node after last node
+			tail.next=currentNode;	
+		}
+			data=sc.nextInt();
+		}
+	return head1;
+	}
+	public static void printLinkList(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> temp=head;
+		 while(temp!=null) {
+			 System.out.print(temp.data+" ");
+			 temp=temp.next;
+		 }
+	}
+	
+	public static void main(String[] args) {
+		LinkedListNode<Integer> t1=takeInput();
+		 printLinkList(t1);
+	}
+
+}

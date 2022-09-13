@@ -1,0 +1,40 @@
+package stackCollege;
+
+import java.util.Stack;
+
+ class StockSpanMethod  {
+	public static int[] stockSpan(int[] price) {
+		Stack<Integer> stack=new Stack<>();
+		//		Stack<Stack<Integer>> s1=new Stack<>();
+
+		for(int i=0;i<price.length;i++) {
+			int count=1;
+			for(int j=i-1;j>=0;j--) {
+				if(price[i]>price[j]&& i!=j ) {   //    
+					count++;
+				}else {
+					break;
+				}
+			}
+			stack.push(count);
+		}
+		
+		int a[]=new int[price.length];
+		for(int i=price.length-1;i>=0;i--) {
+			a[i]=stack.peek();
+			stack.pop();
+		}
+		return a;
+	}
+
+}
+public class StockSpan{
+	public static void main(String[] args) {
+		int price[]= {5,3,8,7,10,7,7,7,12,16};
+		int a[]=StockSpanMethod.stockSpan(price);
+		for(int elem:a) {
+			System.out.print(elem+" ");
+		}
+	}
+	
+}

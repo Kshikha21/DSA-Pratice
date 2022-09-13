@@ -1,0 +1,17 @@
+package queueUsingLL;
+
+public class QueueUse {
+  public static void main(String[] args) {
+	QueueUsingLinkedList<Integer> queue=new QueueUsingLinkedList<>();
+	
+	int a[]= {10,20,30,40};
+	for(int elem:a) {
+		queue.enqueue(elem);
+	}
+	while(!queue.isEmpty()) {
+		System.out.println(queue.dequeue());
+	}
+	
+
+}
+}

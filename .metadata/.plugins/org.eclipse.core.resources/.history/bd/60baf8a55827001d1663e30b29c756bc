@@ -1,0 +1,323 @@
+package com.LinkedList;
+
+import java.util.Scanner;
+
+class DoubleNode{
+	LinkedListNode<Integer> head;
+	LinkedListNode<Integer> tail;
+	
+	DoubleNode(LinkedListNode<Integer> head,LinkedListNode<Integer>tail){
+		this.head=head;
+		this.tail=tail;
+	}
+}
+
+
+public class LinkedListUse {
+	
+	public static void printR(LinkedListNode<Integer> head) {
+		if (head==null) {
+			return;
+		}
+		System.out.print(head.data+" ");
+		printR(head.next);
+	}
+    public static LinkedListNode<Integer> insertR(LinkedListNode<Integer> head, int elem,int pos){
+    	 if(head==null && pos>0) {
+    		 return head;
+    	 }
+    	if(pos==0) {
+    		LinkedListNode<Integer>  newNode=new LinkedListNode<>(elem);
+    		newNode.next=head;
+    		return newNode;
+    	}else {
+    		
+    		LinkedListNode<Integer> smallerHead=insertR(head.next,elem,pos-1);
+    		head.next=smallerHead;
+    		return head;
+    	}
+    	
+    }
+    static void fun(LinkedListNode<Integer> start)
+	{
+	  if(start == null)
+	    return;
+	  System.out.print( start.data); 
+
+	  if(start.next != null )
+	    fun(start.next.next);
+	  System.out.print(start.data);
+	}
+	public static LinkedListNode<Integer> deleteR(LinkedListNode<Integer> head, int pos){
+		if(head==null ) {
+			return null;
+		}
+		if(pos==0) {
+			head=head.next;
+			return head;
+		}else {
+			head.next=deleteR(head.next,pos-1);
+			
+		}
+		
+		return head;
+	}
+	public static LinkedListNode<Integer> reverseLinkedListRec(LinkedListNode<Integer> head) {
+		if(head==null){
+            return head;
+        }
+        if(head.next==null){
+            return head;
+        }
+        LinkedListNode<Integer> smallerHead= reverseLinkedListRec(head.next);
+        head.next.next=head;   
+        head.next=null;
+        return smallerHead;
+	}
+	public static DoubleNode reverseLinkedListBetter(LinkedListNode<Integer> head) {
+		DoubleNode d;
+		if(head==null || head.next==null) {
+			 d =new DoubleNode(head,head);
+//			 d.head=head;
+//			 d.tail=head;
+			 return d;
+		}
+		  DoubleNode smallerHead= reverseLinkedListBetter(head.next);
+		  smallerHead.tail.next=head;
+		  head.next=null;
+	       d=new DoubleNode(smallerHead.head,head);
+//	     d.head=smallerHead.head;
+//	     d.tail=head;
+	       return d;
+	}
+
+	
+	
+	
+	
+	public static LinkedListNode<Integer> takeInput(){
+		LinkedListNode<Integer> head1 = null,tail=null;
+		Scanner sc=new Scanner(System.in);
+		int data=sc.nextInt();
+		
+		while(data!=-1) {
+		LinkedListNode<Integer> currentNode=new LinkedListNode<Integer>(data);
+		if(head1==null){ ///first node or not 
+		head1=currentNode;
+		tail=currentNode;
+		}
+		else {
+//			LinkedListNode<Integer> tail=head1;
+//			while(tail.next!=null) {
+//				tail=tail.next;
+//			}
+//			//tail refers to last node
+//			//connect current node after last node
+//			tail.next=currentNode;	
+			tail.next=currentNode;
+			tail=currentNode; //tail=tail.next;
+			
+		}
+			data=sc.nextInt();
+		}
+	return head1;
+	}
+	public static void printLinkList(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> temp=head;
+		 while(temp!=null) {
+			 System.out.print(temp.data+" ");
+			 temp=temp.next;
+		 }
+		 System.out.println();
+	}
+	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
+	     int count=0;
+	        LinkedListNode<Integer> Previous=head;
+	        LinkedListNode<Integer> NewNode=new LinkedListNode<Integer>(data);
+	        LinkedListNode<Integer> NextNode;
+	        if(pos==0) {
+	        	NewNode.next=Previous;
+	        	head=NewNode;
+	 //    return NewNode;
+	        }
+	        
+	        else {
+	       while(Previous!=null) {
+	        if(count+1==pos){
+	              NextNode=Previous.next;
+	              NewNode.next=NextNode;
+	            Previous.next=NewNode;
+	            count++;
+	            
+	        }else{
+	            Previous=Previous.next;
+	            count++;
+	        
+	        }
+	       }}
+	    return head;
+	    }
+	
+	public static LinkedListNode<Integer> delete(LinkedListNode<Integer> head,int pos){
+		LinkedListNode<Integer> prev=head;
+		  int count=0;
+		  while(prev!=null) {
+		  if(pos==0 && prev.next!=null) {
+			  head=prev.next;
+			  return head;
+		  }
+		  while(count<pos-1 && prev.next!=null) {
+			  prev=prev.next;
+			  count++;
+		  }
+		  if(prev.next!=null) {
+		  prev.next=prev.next.next;}
+		  else {
+			  return head;
+		  }
+		  }
+		return head;
+	}
+	public static int findNode(LinkedListNode<Integer> head, int n) {
+		LinkedListNode<Integer> temp=head;
+        int count=0;
+        while(temp!=null){
+            if(temp.data==n){
+                return count;
+            }
+            count++;
+            temp=temp.next;
+        }
+        if(temp==null){
+            count=-1;
+        }
+        return count;
+	}
+	
+	public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+		LinkedListNode<Integer> temp=head;
+        	LinkedListNode<Integer> prev=head;
+            LinkedListNode<Integer> pointingToHead=head;
+        int count=0;
+        while(temp!=null){
+            temp=temp.next;
+            count++;
+        }
+        temp=head;
+        int pos=count-n;
+        int traverse=0;
+        while(traverse<pos-1 &&temp!=null){
+            traverse++;
+            temp=temp.next;
+        }
+        prev=temp.next;
+        pointingToHead=head;
+        while(prev.next!=null){
+             prev=prev.next;
+        }
+        prev.next=head;
+        head=pointingToHead;
+        return head;
+	}
+
+	public static void main(String[] args) {
+		LinkedListNode<Integer> t1=takeInput();
+		// printLinkList(t1);
+		//t1=	 insert(t1,5,41);
+		//t1=delete(t1,4);
+	//	int result=findNode(t1,20);
+	//	 printLinkList(t1);
+	//	 System.out.println(result);
+		// t1=appendLastNToFirst(t1,2);
+	//	t1= MakeChangeToLinkedList(t1,2);
+		// t1=removeDuplicates(t1);
+	//	 printLinkList(t1);
+	//	t1=insertR(t1,20,8);
+	//	printR(t1);
+		
+		System.out.println();
+	//	fun(t1);
+	//	t1=deleteR(t1,4);
+		t1=reverseLinkedListRec(t1);
+		
+		printR(t1);
+		DoubleNode ans=reverseLinkedListBetter(t1);
+		printR(ans.head);
+	}
+	
+	public static int lengthOfLinkedList(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> temp=head;
+		int l=0;
+		while(temp!=null) {
+			temp=temp.next;
+			l++;
+		}
+		return l;
+	}
+	public static LinkedListNode<Integer> MakeChangeToLinkedList(LinkedListNode<Integer> head, int n){
+		LinkedListNode<Integer> temp=head;
+		LinkedListNode<Integer> newhead = null;
+		LinkedListNode<Integer> newtail = null;
+		int l1=lengthOfLinkedList(head);
+		//n=n%l1;
+    int count=1;
+    while(temp.next!=null) {
+    	if(count==l1-n) {
+    		newtail=temp;
+    	}if(count==l1-n+1) {
+    		newhead=temp;
+    	}
+    	temp=temp.next;
+    	count++;
+    }
+    newtail.next=null;
+    temp.next=head;
+    
+    return newhead;
+	}
+	public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
+		 if(head==null)
+	            return head;
+		 
+		LinkedListNode<Integer> temp=head;
+    LinkedListNode<Integer> nextNode;
+        nextNode=temp.next;
+        if(nextNode==null) {
+        	return head;
+        }
+        while(nextNode!=null){
+            if(temp.data!=nextNode.data){
+                nextNode=nextNode.next;
+                temp=temp.next;
+                
+            }else{
+                temp.next=nextNode.next;
+                 nextNode=nextNode.next;
+            }
+        }
+        return head;
+	}
+	 public static LinkedListNode<Integer> removeDuplicatesBetter(LinkedListNode<Integer> head)
+	    {
+	        if(head==null)
+	            return head;
+	        if(head.next==null)
+	            return head;
+	        LinkedListNode<Integer> t1=head,t2=head.next;
+	        LinkedListNode<Integer> finalhead=head;
+	        while(t2!=null){
+	            if(t1.data.equals(t2.data))
+	            {
+	                t2=t2.next; 
+	            }
+	            else{
+	                t1.next=t2;
+	                t1=t2;
+	            }
+	        }
+
+	        t1.next=null;
+	        return finalhead;
+	    }
+
+}

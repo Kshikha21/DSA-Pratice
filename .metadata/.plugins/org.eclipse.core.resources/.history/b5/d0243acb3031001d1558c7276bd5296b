@@ -1,0 +1,9 @@
+package queueUsingLL;
+
+import com.LinkedList.Node;
+
+public class QueueUsingLinkedList<T> {
+	private Node<T> front;
+	private Node<T> rear;
+
+}

@@ -1,0 +1,39 @@
+package binaryTree;
+
+public class BinaryTreeUse {
+	public static void printBinaryTree(BinaryTreeNode<Integer> root) {
+     //TODO take of base case
+		if(root==null) {
+			return;
+		}
+		System.out.println(root.data);
+		printBinaryTree(root.left);
+		printBinaryTree(root.right);
+
+	/*	
+		System.out.println(root.data);
+		if(root.left!=null) {
+		printBinaryTree(root.left);}
+		if(root.right!=null) {
+		printBinaryTree(root.right);}  */
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
+		BinaryTreeNode<Integer> rootLeft = new BinaryTreeNode<>(2);
+
+		BinaryTreeNode<Integer> rootRight = new BinaryTreeNode<>(3);
+
+		root.left = rootLeft;
+		root.right = rootRight;
+
+		BinaryTreeNode<Integer> rootLeftRight = new BinaryTreeNode<>(5);
+		BinaryTreeNode<Integer> rootRightLeft = new BinaryTreeNode<>(5);
+
+		rootLeft.right = rootLeftRight;
+		rootRight.left = rootRightLeft;
+
+	}
+
+}

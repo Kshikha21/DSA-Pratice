@@ -1,0 +1,47 @@
+package queueCollection;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class StackUsing2Queue {
+	 private Queue q1;
+	   private Queue q2;
+	   // private int size;
+	    
+
+	    public StackUsing2Queue() {
+	        //Implement the Constructor
+	        q1=new LinkedList();
+	        q2=new LinkedList();
+	     //   size=0;
+	    }
+
+
+
+	    /*----------------- Public Functions of Stack -----------------*/
+
+
+	    public int getSize() { 
+	       return q1.size();
+	        
+	    }
+
+	    public boolean isEmpty() {
+	       
+	        return getSize==0;
+	        
+	    }
+
+	    public void push(int element) {
+	        
+	       
+	    }
+
+	    public int pop() {
+	      
+	    }
+
+	    public int top() {
+	        
+	    }
+}

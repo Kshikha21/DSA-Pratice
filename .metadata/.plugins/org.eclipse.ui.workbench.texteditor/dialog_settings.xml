@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="&#x09;&#x0D;&#x0A;&#x09;&#x09;System.out.println(root.data);&#x0D;&#x0A;&#x09;&#x09;if(root.left!=null) {&#x0D;&#x0A;&#x09;&#x09;printBinaryTree(root.left);}&#x0D;&#x0A;&#x09;&#x09;if(root.right!=null) {&#x0D;&#x0A;&#x09;&#x09;printBinaryTree(root.right);}"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="true"/>
+		<list key="findhistory">
+			<item value="\t\R\t\tSystem\.out\.println\(root\.data\);\R\t\tif\(root\.left!=null\) \{\R\t\tprintBinaryTree\(root\.left\);\}\R\t\tif\(root\.right!=null\) \{\R\t\tprintBinaryTree\(root\.right\);\}"/>
+			<item value="public static Queue&lt;Integer&gt; reverseKElements\(Queue&lt;Integer&gt; input, int k\) \{\R\t\R\t\t\R        if\(input\.size\(\)&lt;=1\)\{\R            return input;\R        \}\R       int temp=input\.poll\(\);\R      Queue&lt;Integer&gt; smallerQueue=reverseKElements\(input,k\);\R         smallerQueue\.add\(temp\);\R       input=removeElements\(smallerQueue,k\);\R     \R        return input;\R\}\R\tprivate static Queue&lt;Integer&gt; removeElements\(Queue&lt;Integer&gt; input, int k\) \{\R\t\t\R\t\twhile\(k&gt;0 &amp;&amp; !input\.isEmpty\(\)\) \{\R\t\t\tSystem\.out\.println\(k\);\R\t\t\tint temp=input\.poll\(\);\R\t\t\tk--;\R\t\t\tremoveElements\(input,k\);\R\t\t\tinput\.add\(temp\);\R\t\t\}\R\t\treturn input;\R\t\}\R"/>
+			<item value="public static Queue&lt;Integer&gt; reverseKElementsUsingStack\(Queue&lt;Integer&gt; input, int k\) \{\R\t\tif\(input\.size\(\)&lt;=1 \|\| k&gt;input\.size\(\)\) \{\R\t\t\treturn input;\R\t\t\}\R\t\tStack&lt;Integer&gt;  stck=new Stack&lt;Integer&gt;\(\);\R\t\twhile\(!input\.isEmpty\(\) &amp;&amp; k&gt;0\) \{\R\t\t\tstck\.push\(input\.poll\(\)\);\R\t\t\tk--;\R\t\t\}\R\t\}"/>
+			<item value="public static Queue&lt;Integer&gt; reverseKElementsUsingStack\(Queue&lt;Integer&gt; input, int k\) \{\R\t\tif\(input\.size\(\)&lt;=1 \|\| k&gt;input\.size\(\)\) \{\R\t\t\treturn input;\R\t\t\}\R\t\tStack&lt;Integer&gt;  stck=new Stack&lt;Integer&gt;\(\);\R\t\twhile\(!input\.isEmpty\(\) &amp;&amp; k&gt;0\) \{\R\t\t\tstck\.push\(input\.poll\(\)\);\R\t\t\tk--;\R\t\t\}\R\t\}\R"/>
+			<item value="package stackCollege;\R\Rimport java\.util\.Stack;\R\Rpublic class StockSpan \{\R\tpublic static int\[\] stockSpan\(int\[\] price\) \{\R\t\tStack&lt;Integer&gt; stack=new Stack&lt;&gt;\(\);\R\t\t//\t\tStack&lt;Stack&lt;Integer&gt;&gt; s1=new Stack&lt;&gt;\(\);\R\R\t\tfor\(int i=0;i&lt;price\.length;i\+\+\) \{\R\t\t\tint count=1;\R\t\t\tfor\(int j=0;j&lt;price\.length;j\+\+\) \{\R\t\t\t\tif\(price\[i\]&lt;=price\[j\] &amp;&amp; i!=j\) \{\R\t\t\t\t\tcount\+\+;\R\t\t\t\t\}\R\t\t\t\}\R\t\t\tstack\.push\(count\);\R\t\t\}\R\t\tint a\[\]=new int\[price\.length\];\R\t\tfor\(int i=0;i&lt;price\.length;i\+\+\) \{\R\t\t\ta\[i\]=stack\.pop\(\);\R\t\t\}\R\R\R\R\t\treturn a;\R\t\}\R\R\}\R"/>
+			<item value="package stackLinkedList;\R\Rimport java\.util\.Stack;\R\Rpublic class Solution \{\R\tprivate static Stack&lt;Character&gt; stack=new Stack&lt;&gt;\(\);\R\R\tpublic static boolean isBalanced\(String str\) \{\R\t\tfor\(int i=0;i&lt;str\.length\(\);i\+\+\) \{\R\t\t\tchar current=str\.charAt\(i\);\R\t\t\tif\(isOpening\(current\)\) \{\R\t\t\t\tstack\.push\(current\);\R\t\t\t\}else \{\R\t\t\t\tif\(stack\.isEmpty\(\)\) \{\R\t\t\t\t\treturn false;\R\t\t\t\t\}\R\t\t\t\telse if\(isMatching\(stack\.peek\(\),current\)\) \{\R\t\t\t\t\tstack\.pop\(\);\R\R\t\t\t\t\}else \{\R\t\t\t\t\treturn false;\R\t\t\t\t\}\R\t\t\t\}\R\t\t\}\R\t\tif\(stack\.isEmpty\(\)\) \{\R\t\t\treturn true;\R\t\t\}\R\t\treturn false;\R\R\t\}\R\R\tprivate static boolean isMatching\(Character peek, char current\) \{\R\R\t\treturn \(peek==&apos;\(&apos; &amp;&amp; current==&apos;\)&apos;\) \|\|\R\t\t\t\tpeek==&apos;\{&apos; &amp;&amp; current==&apos;\}&apos;  \|\|\R\t\t\t\tpeek==&apos;\[&apos;  &amp;&amp; current==&apos;\]&apos;\R\t\t\t\t;\R\t\}\R\R\tprivate static boolean isOpening\(char current\) \{\R\t\treturn current==&apos;\(&apos; \|\|\R\t\t\t\tcurrent== &apos;\{&apos; \|\|\R\t\t\t\tcurrent== &apos;\[&apos;;\R\t\}\R\R\tpublic static boolean checkRedundantBrackets\(String expression\) \{\R\t\tStack&lt;Character&gt; stack=new Stack&lt;&gt;\(\);\R\t\tint temp=0;\R\t\tfor\(int i=0;i&lt;expression\.length\(\);i\+\+\)\{\R\t\t\tint count=0;\R\t\t\tchar current= expression\.charAt\(i\);\R\t\t\tif\(expression\.charAt\(i\)!=&apos;\)&apos;\)\{\R\t\t\t\tstack\.push\(expression\.charAt\(i\)\);\R\t\t\t\}else\{\R\R\t\t\t\tif\(isMatching\(stack\.peek\(\),current\)\)\{\R\t\t\t\t\ttemp=count;\R\t\t\t\t\tstack\.pop\(\);\R\t\t\t\t\tcount=0;\R\t\t\t\t\}else\{\R\t\t\t\t\tcount\+\+;\R\t\t\t\t\tstack\.pop\(\);\R\t\t\t\t\}\R\R\R\t\t\t\}\R\t\t\}\R\t\tif\(temp&gt;0\)\{\R\t\t\treturn false;\R\t\t\}\R\t\treturn true;\R\R\R\t\}\R\tprivate static boolean isMatching\(char c1,char current\)\{\R\t\treturn \(c1==&apos;\(&apos; &amp;&amp; current==&apos;\)&apos;\);\R\t\}\R\R\}\R\}"/>
+			<item value="n"/>
+		</list>
+		<list key="replacehistory">
+			<item value="input"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="762"/>
+		<item key="DIALOG_Y_ORIGIN" value="217"/>
+		<item key="DIALOG_WIDTH" value="414"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

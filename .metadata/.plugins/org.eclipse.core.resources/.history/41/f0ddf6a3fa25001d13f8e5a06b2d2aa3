@@ -1,0 +1,30 @@
+package com.LinkedList;
+
+import java.util.Scanner;
+
+public class LinkedListUse {
+	public static LinkedListNode<Integer> takeInput(){
+		LinkedListNode<Integer> head1 = null;
+		Scanner sc=new Scanner(System.in);
+		int data=sc.nextInt();
+		
+		while(data!=-1) {
+		LinkedListNode<Integer> currentNode=new LinkedListNode<Integer>(data);
+		head1=currentNode;
+			data=sc.nextInt();
+			currentNode.next.data=data;
+		}
+		
+		
+		return head1;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		LinkedListNode<Integer> t1=takeInput();
+		System.out.println(t1);
+		
+	}
+
+}

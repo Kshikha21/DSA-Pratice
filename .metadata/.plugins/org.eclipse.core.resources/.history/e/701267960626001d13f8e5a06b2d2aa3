@@ -1,0 +1,75 @@
+package com.LinkedList;
+
+import java.util.Scanner;
+
+public class LinkedListUse {
+	public static LinkedListNode<Integer> takeInput(){
+		LinkedListNode<Integer> head1 = null,tail=null;
+		Scanner sc=new Scanner(System.in);
+		int data=sc.nextInt();
+		
+		while(data!=-1) {
+		LinkedListNode<Integer> currentNode=new LinkedListNode<Integer>(data);
+		if(head1==null){ ///first node or not 
+		head1=currentNode;
+		tail=currentNode;
+		}
+		else {
+//			LinkedListNode<Integer> tail=head1;
+//			while(tail.next!=null) {
+//				tail=tail.next;
+//			}
+//			//tail refers to last node
+//			//connect current node after last node
+//			tail.next=currentNode;	
+			tail.next=currentNode;
+			tail=currentNode; //tail=tail.next;
+			
+		}
+			data=sc.nextInt();
+		}
+	return head1;
+	}
+	public static void printLinkList(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> temp=head;
+		 while(temp!=null) {
+			 System.out.print(temp.data+" ");
+			 temp=temp.next;
+		 }
+		 System.out.println();
+	}
+	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
+	     int count=0;
+	        LinkedListNode<Integer> Previous=head;
+	        LinkedListNode<Integer> NewNode=new LinkedListNode<Integer>(data);
+	        LinkedListNode<Integer> NextNode;
+	        if(pos==0) {
+	       // 	NewNode.next=Previous;
+	        	NewNode=head;
+	        }
+	        
+	        else {
+	       while(Previous!=null) {
+	        if(count+1==pos){
+	              NextNode=Previous.next;
+	              NewNode.next=NextNode;
+	            Previous.next=NewNode;
+	            count++;
+	            
+	        }else{
+	            Previous=Previous.next;
+	            count++;
+	        
+	        }
+	       }}
+	    return head;
+	    }
+	
+	public static void main(String[] args) {
+		LinkedListNode<Integer> t1=takeInput();
+		 printLinkList(t1);
+		 insert(t1,0,20);
+		 printLinkList(t1);
+	}
+
+}

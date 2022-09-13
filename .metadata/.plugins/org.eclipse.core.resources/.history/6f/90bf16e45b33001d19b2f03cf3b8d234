@@ -1,0 +1,11 @@
+package binaryTree;
+
+public class BinaryTreeUse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+BinaryTreeNode<Integer> root =new BinaryTreeNode<Integer>();
+root.data=1;
+	}
+
+}

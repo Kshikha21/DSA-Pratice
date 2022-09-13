@@ -1,0 +1,55 @@
+package queueUsingLL;
+
+import com.LinkedList.Node;
+
+public class QueueUsingLinkedList<T> {
+	
+	private Node<T> front;
+	private Node<T> rear;
+	private int size;
+	
+	public QueueUsingLinkedList() {
+		front=null;
+		rear=null;
+		size=0;	
+	}
+	public int size() {	
+		return size;
+	}
+	public boolean isEmpty() {
+		return size==0;
+	}
+	public void enqueue(T elem) {
+		Node<T> newNode=new Node<>(elem);
+		if(size==0) {
+			front=newNode;
+			rear=newNode;
+			newNode.next=null;
+			size++;
+		}
+		rear=newNode;
+		rear.next=null;
+		size++;
+}
+	public T  front() {
+		
+		return front.data;
+	}
+	public T dequeue() {
+		T data;
+		if(size==0) {
+			System.out.println("no element to be deleted");
+		}
+		if(size==1) {
+			data=front.data;
+			front=null;
+			rear=null;
+			size--;
+		}
+		 data=front.data;
+		front=front.next;
+		size--;
+		
+		return data;
+	}
+}
