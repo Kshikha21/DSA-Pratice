@@ -2,7 +2,10 @@ package binaryTree;
 
 import java.util.Scanner;
 
+
 public class BinaryTreeUse {
+ public static final Scanner s =new Scanner(System.in);
+
 	public static void printBinaryTree(BinaryTreeNode<Integer> root) {
      //TODO take of base case
 		if(root==null) {
@@ -38,7 +41,6 @@ public class BinaryTreeUse {
 	}
 	public static BinaryTreeNode<Integer> takeInput(){
 		System.out.println("Enter root data");
-		Scanner s=new Scanner(System.in);
 		int rootData=s.nextInt();
 		if(rootData==-1) {
 			return null;
@@ -61,8 +63,8 @@ public class BinaryTreeUse {
 
 			}
 		}
-	  Scanner sc=new Scanner(System.in);
-	  int rootData=sc.nextInt();
+	
+	  int rootData=s.nextInt();
 	  if(rootData==-1) {
 		  return null;
 	  }
@@ -74,6 +76,14 @@ public class BinaryTreeUse {
 		
 		return root;
 		
+	}
+	public static int numberOfNodes(BinaryTreeNode<Integer> root) {
+		if(root==null) {
+			return 0;
+		}
+		int leftChildNodes=numberOfNodes(root.left);
+		int rightChildNodes=numberOfNodes(root.right);
+		return 1+leftChildNodes+rightChildNodes;
 	}
 	
 
@@ -95,6 +105,8 @@ public class BinaryTreeUse {
 		
 		BinaryTreeNode<Integer> root=takeInputBetter(true,0,true);
 		printTreeDetailed(root);
+		System.out.println("number of nodes "+numberOfNodes(root));
+		s.close();
 
 	}
 
