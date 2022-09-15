@@ -3,6 +3,5 @@ INDEX VERSION 1.131+E:\CodingNinjasPractice\.metadata\.plugins\org.eclipse.jdt.c
 2420995280.index
 1088540399.index
 3933804599.index
-1772165109.index
 2544950504.index
 1865797976.index

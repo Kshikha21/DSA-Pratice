@@ -48,52 +48,26 @@ public class BinaryTreeUse {
 		BinaryTreeNode<Integer> rightChild=takeInput();
 		root.left=leftChild;
 		root.right=rightChild;
-		return root;
-	}
-	public static BinaryTreeNode<Integer> takeInputBetter(boolean isRoot,int parentData,boolean isLeft){
-		if(isRoot) {
-			System.out.println("Enter the root data");
-		}else {
-			if(isLeft) {
-				System.out.println("Enter the left child of : "+parentData);
-			}else {
-				System.out.println("Enter the right child of : "+parentData);
-
-			}
-		}
-	  Scanner sc=new Scanner(System.in);
-	  int rootData=sc.nextInt();
-	  if(rootData==-1) {
-		  return null;
-	  }
-	  BinaryTreeNode<Integer> root=new BinaryTreeNode<>(rootData);
-	  BinaryTreeNode<Integer> leftChild=takeInputBetter(false,rootData,true);
-	  BinaryTreeNode<Integer> rightChild=takeInputBetter(false,rootData,false);
-	  root.left=leftChild;
-	  root.right=rightChild;
 		
 		return root;
-		
 	}
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
-//		BinaryTreeNode<Integer> rootLeft = new BinaryTreeNode<>(2);
-//
-//		BinaryTreeNode<Integer> rootRight = new BinaryTreeNode<>(3);
-//
-//		root.left = rootLeft;
-//		root.right = rootRight;
-//
-//		BinaryTreeNode<Integer> rootLeftRight = new BinaryTreeNode<>(4);
-//		BinaryTreeNode<Integer> rootRightLeft = new BinaryTreeNode<>(5);
-//
-//		rootLeft.right = rootLeftRight;
-//		rootRight.left = rootRightLeft;
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
+		BinaryTreeNode<Integer> rootLeft = new BinaryTreeNode<>(2);
+
+		BinaryTreeNode<Integer> rootRight = new BinaryTreeNode<>(3);
+
+		root.left = rootLeft;
+		root.right = rootRight;
+
+		BinaryTreeNode<Integer> rootLeftRight = new BinaryTreeNode<>(4);
+		BinaryTreeNode<Integer> rootRightLeft = new BinaryTreeNode<>(5);
+
+		rootLeft.right = rootLeftRight;
+		rootRight.left = rootRightLeft;
 		
-		BinaryTreeNode<Integer> root=takeInputBetter(true,0,true);
 		printTreeDetailed(root);
 
 	}
